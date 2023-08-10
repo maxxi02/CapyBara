@@ -3,7 +3,9 @@
 import Link from 'next/link'
 import React from 'react'
 import styles from './page.module.css'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname,  } from 'next/navigation'
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
+
 
 const links = [
 
@@ -48,6 +50,7 @@ export default function Navbar() {
     <div className={styles.container} >
         <Link href={"/"} className={styles.logo}>Capybara</Link>
         <div className={styles.links}>
+            <DarkModeToggle />
             {links.map((link)=>
             {
                 return (<Link className={`${link.path === pathname && styles.activeLinks}`} href={link.path} key={link.id}>{link.title}</Link>)
