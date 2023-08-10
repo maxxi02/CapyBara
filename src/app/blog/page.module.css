@@ -1,0 +1,33 @@
+
+.mainContainer
+{
+   display: flex;
+   flex-direction: column;
+   gap: 50px;
+}
+
+
+.links
+{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.imgContainer
+{
+    object-fit: contain;
+}
+
+
+.title
+{
+    margin-bottom: 10px;
+}
+
+
+.desc
+{
+    font-size: 18px;
+    color: #999;
+}

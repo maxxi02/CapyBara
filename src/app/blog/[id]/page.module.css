@@ -1,0 +1,52 @@
+
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.item1
+{
+ 
+    display: flex;
+
+    
+}
+
+.item
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.item2
+{
+    text-align: justify;
+}
+
+
+.img
+{
+    width: 100%;
+    object-fit: cover;
+}
+
+.icon
+{   
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.author
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
