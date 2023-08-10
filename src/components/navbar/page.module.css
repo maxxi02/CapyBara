@@ -23,14 +23,22 @@
     gap: 20px;
 }
 
-.activeLinks
+.white
 {
     display: flex;
     align-items: center;
     gap: 20px;
     color: whitesmoke;
     transition: ease .5s;
+}
 
+.black
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #111;
+    transition: ease .5s;
 }
 
 .logout

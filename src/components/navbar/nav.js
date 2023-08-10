@@ -1,10 +1,11 @@
 "use client"
 
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './page.module.css'
 import { usePathname,  } from 'next/navigation'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
+import { ThemeContext } from '@/context/ThemeContext'
 
 
 const links = [
@@ -45,18 +46,27 @@ export default function Navbar() {
 
     const pathname = usePathname()
     console.log(pathname)
-
+    const {mode} = useContext(ThemeContext)
   return (
     <div className={styles.container} >
+       
         <Link href={"/"} className={styles.logo}>Capybara</Link>
         <div className={styles.links}>
             <DarkModeToggle />
-            {links.map((link)=>
-            {
-                return (<Link className={`${link.path === pathname && styles.activeLinks}`} href={link.path} key={link.id}>{link.title}</Link>)
-            })}
+            {links.map((link) => (
+                <Link
+                    className={`${mode === "dark" ? (link.path === pathname ? styles.white : styles.links) : styles.links}`}
+                    href={link.path}
+                    key={link.id}
+                >
+                    {link.title}
+                </Link>
+            ))}
             <button className={styles.logout}>Logout</button>
         </div>
     </div>
   )
 }
+
+
+// className={`${link.path === pathname && styles.white}`} 
