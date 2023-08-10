@@ -69,4 +69,3 @@ export default function Navbar() {
 }
 
 
-// className={`${link.path === pathname && styles.white}`} 
