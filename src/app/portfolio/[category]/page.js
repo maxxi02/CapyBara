@@ -18,7 +18,7 @@ export default function Category({params}) {
           <Button text={"See More"} url={"#"}/>
         </div>
         <div className={styles.imgContainer}>
-          <Image  className={styles.img}
+          <Image  alt=''  className={styles.img}
            src={"/marites&aeron.jpg"} fill={true} />
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function Category({params}) {
         </div>
         <div className={styles.imgContainer}>
           <Image  className={styles.img}
-           src={"/rovic&rocio.jpg"} fill={true} />
+           src={"/rovic&rocio.jpg"}  alt='' fill={true} />
         </div>
       </div>
       <div className={styles.item}>
@@ -41,7 +41,7 @@ export default function Category({params}) {
         </div>
         <div className={styles.imgContainer}>
           <Image  className={styles.img}
-           src={"/rocio2.jpg"} fill={true} />
+           src={"/rocio2.jpg"}  alt='' fill={true} />
         </div>
       </div>
     </div>
