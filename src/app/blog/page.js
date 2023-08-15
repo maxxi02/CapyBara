@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
@@ -33,14 +34,16 @@ export default function Blog() {
   return (
     <div className={styles.mainContainer}>
       {data.map((item) => (
-        <Link key={item._id} href={`/blog/${item._id}`} className={styles.links}>
-          <div className={styles.imgContainer}>
-            <Image src={item.img} alt='' height={250} width={400} className={styles.imgContainer} />
-          </div>
-          <div className={styles.content}>
-            <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>{item.desc}</p>
-          </div>
+        <Link className={styles.links} key={item._id} href={`/blog/${item._id}`}>
+
+            <div className={styles.imgContainer}>
+              <Image src={item.img} alt='' height={250} width={400} className={styles.imgContainer} />
+            </div>
+            <div className={styles.content}>
+              <h1 className={styles.title}>{item.title}</h1>
+              <p className={styles.desc}>{item.desc}</p>
+            </div>
+ 
         </Link>
       ))}
     </div>
