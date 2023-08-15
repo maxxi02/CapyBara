@@ -2,48 +2,48 @@ import React from 'react'
 import styles from './page.module.css'
 import Button from '@/components/Button/Button'
 import Image from 'next/image'
+import { items } from './data'
+import { notFound } from 'next/navigation'
 
+
+
+const getData = (category) =>
+{
+  const data = items[category]
+
+  if(data)
+  {
+    return data
+  }
+
+  return notFound()
+}
 
 export default function Category({params}) {
 
-  console.log(params)
+  
+  const data = getData(params.category)
+  console.log(params.category)
 
   return (
     <div className={styles.container}>
       <h1 className={styles.catTitle}>{params.category}</h1>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1  className={styles.title}>Marites & Aeron</h1>
-          <p  className={styles.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, omnis atque. Ab assumenda non reprehenderit? Explicabo pariatur porro fugit quis nisi, facilis voluptatem asperiores, minus beatae aut consequuntur odio reprehenderit?</p>
-          <Button text={"See More"} url={"#"}/>
-        </div>
-        <div className={styles.imgContainer}>
-          <Image  alt=''  className={styles.img}
-           src={"/marites&aeron.jpg"} fill={true} />
-        </div>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1  className={styles.title}>Rovic and Rocio</h1>
-          <p  className={styles.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, omnis atque. Ab assumenda non reprehenderit? Explicabo pariatur porro fugit quis nisi, facilis voluptatem asperiores, minus beatae aut consequuntur odio reprehenderit?</p>
-          <Button text={"See More"} url={"#"}/>
-        </div>
-        <div className={styles.imgContainer}>
-          <Image  className={styles.img}
-           src={"/rovic&rocio.jpg"}  alt='' fill={true} />
-        </div>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.content}>
-          <h1  className={styles.title}>The Gang</h1>
-          <p  className={styles.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, omnis atque. Ab assumenda non reprehenderit? Explicabo pariatur porro fugit quis nisi, facilis voluptatem asperiores, minus beatae aut consequuntur odio reprehenderit?</p>
-          <Button text={"See More"} url={"#"}/>
-        </div>
-        <div className={styles.imgContainer}>
-          <Image  className={styles.img}
-           src={"/rocio2.jpg"}  alt='' fill={true} />
-        </div>
-      </div>
+      {data.map((items)=>
+      {
+        return(<div key={items.id} className={styles.item}>
+          <div className={styles.content}>
+            <h1  className={styles.title}>{items.title}</h1>
+            <p  className={styles.desc}>{items.desc}</p>
+            <Button text={"See More"} url={"/blog"}/>
+          </div>
+          <div className={styles.imgContainer}>
+            <Image  alt=''  className={styles.img}
+            src={items.image} fill={true} />
+          </div>
+        </div>)
+        
+      })}
+    
     </div>
   )
 }

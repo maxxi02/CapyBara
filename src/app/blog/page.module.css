@@ -23,6 +23,7 @@
 .title
 {
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 
 
@@ -30,4 +31,5 @@
 {
     font-size: 18px;
     color: #999;
+
 }

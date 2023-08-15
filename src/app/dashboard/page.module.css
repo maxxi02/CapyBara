@@ -1,5 +1,91 @@
-
 .container
 {
-    background-color: brown;
+    padding: 2rem;
+    display: flex;
+    gap: 100px;
+}
+
+
+.imgContainer
+{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.img
+{
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.posts
+{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.new
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post1
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 20px 0;
+    gap:  10px;
+}
+
+
+
+
+
+.delete
+{
+    padding: 8px;
+    cursor: pointer;
+    background-color: #53c28b;
+    border: none;
+    border-radius: 5px; 
+    color: white;
+    font-size: 12px;
+}
+
+
+.dark
+{
+    padding: 10px;
+    background-color: transparent;
+    color: whitesmoke;
+    border: 2px solid #bbb;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.light
+{
+    padding: 10px;
+    background-color: transparent;
+    color: #111;
+    border: 2px solid #bbb;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.send
+{
+    padding: 20px;
+    cursor: pointer;
+    background-color: #53c28b;
+    border: none;
+    border-radius: 5px; 
+    color: white;
+    font-size: 12px;
 }

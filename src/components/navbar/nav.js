@@ -6,6 +6,7 @@ import styles from './page.module.css'
 import { usePathname,  } from 'next/navigation'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import { ThemeContext } from '@/context/ThemeContext'
+import { signOut, useSession } from 'next-auth/react'
 
 
 const links = [
@@ -44,9 +45,14 @@ const links = [
 
 export default function Navbar() {
 
+
+    const session = useSession()
+
     const pathname = usePathname()
     console.log(pathname)
     const {mode} = useContext(ThemeContext)
+
+    
   return (
     <div className={styles.container} >
        
@@ -62,7 +68,11 @@ export default function Navbar() {
                     {link.title}
                 </Link>
             ))}
-            <button className={styles.logout}>Logout</button>
+            {session.status === "authenticated" &&
+
+                <button className={styles.logout} onClick={signOut}>Logout</button>
+                
+            }
         </div>
     </div>
   )
