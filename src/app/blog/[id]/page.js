@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './page.module.css';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+
 
 async function getData(id) {
   const res = await fetch(`/api/posts/${id}`, { cache: 'no-store' });
@@ -16,14 +16,7 @@ async function getData(id) {
 }
 
 
-export async function generateMetadata({ params }) {
 
-  const post = await getData(params.id)
-  return {
-    title: post.title,
-    description: post.desc,
-  };
-}
 
 export default function BlogPost({ params }) {
   const [data, setData] = React.useState(null);
