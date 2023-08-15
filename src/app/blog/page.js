@@ -1,41 +1,35 @@
 "use client"
-
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
+async function fetchData() {
+  const response = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
 
-
-
-async function getData() {
-  const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
-
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error('Failed to fetch data');
   }
 
-  return res.json();
+  return response.json();
 }
 
-  export default function Blog() {
-    const [data, setData] = useState([]);
+export default function Blog() {
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-      async function fetchData() {
-        try {
-          const fetchedData = await getData();
-          setData(fetchedData);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
+  useEffect(() => {
+    async function getData() {
+      try {
+        const fetchedData = await fetchData();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
+    }
 
-      fetchData();
-    }, []);
+    getData();
+  }, []);
 
-
-  {
   return (
     <div className={styles.mainContainer}>
       {data.map((item) => (
@@ -52,7 +46,3 @@ async function getData() {
     </div>
   );
 }
-
-}
-
-
