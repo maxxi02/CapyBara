@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { ThemeContext } from '@/context/ThemeContext'
 import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
+import Button from '@/components/Button/Button'
 
 export default function Login() {
 
@@ -50,6 +51,7 @@ export default function Login() {
         required />
         <button className={styles.button}>Login</button>
       </form>
+      <Link href={"/dashboard/register"}>Register</Link>
       <button onClick={()=> signIn("google")}>Login with Google</button> 
     </div>
   )
