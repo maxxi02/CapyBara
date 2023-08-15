@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
+
+
 
 async function getData() {
   const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
@@ -30,7 +33,9 @@ export default function Blog() {
 
     fetchData();
   }, []);
-
+  const session = useSession()
+  if(session.status === "authenticated")
+  {
   return (
     <div className={styles.mainContainer}>
       {data.map((item) => (
@@ -46,4 +51,5 @@ export default function Blog() {
       ))}
     </div>
   );
+}
 }
